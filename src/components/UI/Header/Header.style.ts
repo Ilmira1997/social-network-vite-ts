@@ -1,4 +1,6 @@
-.Header {
+import styled from "styled-components";
+
+export const SCHeader = styled.div`
   position: fixed;
   width: 100%;
   top: 0;
@@ -39,7 +41,7 @@
   input {
     padding-left: 63px;
   }
-}
+
 
 @media (max-width: 1480px) {
   .Header {
@@ -62,7 +64,7 @@
     max-width: 360px;
 
     &::placeholder {
-      color: var(--placeholder-color);
+      color: ${(props)=>props.theme.color.placeholderColor};
     }
   }
 
@@ -72,12 +74,12 @@
     top: 50%;
     left: 25px;
     transform: translateY(-50%);
-    fill: var(--placeholder-color);
+    fill: ${(props)=>props.theme.color.placeholderColor};
   }
 
   &:has(input:is(:hover, :focus)) {
     .icon {
-      fill: var(--prime-color);
+      fill: ${(props)=>props.theme.color.primeColor};
     }
   }
 }
@@ -106,14 +108,14 @@
 
     &:hover {
       fill: var(--prime-color);
-      border-color: var(--light-gray);
+      border-color: ${(props)=>props.theme.color.lightGray};
       background-color: var(--bgc);
     }
 
     &:active {
       transition: 100ms;
       fill: white;
-      background-color: var(--prime-color);
+      background-color: ${(props)=>props.theme.color.primeColor};
     }
   }
 
@@ -152,7 +154,9 @@
 
     &._active {
       transform: rotate(-180deg);
-      fill: var(--prime-color);
+      fill: ${(props)=>props.theme.color.primeColor};
     }
   }
+
 }
+`
