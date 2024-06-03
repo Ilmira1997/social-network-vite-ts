@@ -1,14 +1,30 @@
-import { SCAppInput } from "./AppInput.style";
+import { ErrorMessage, SCAppInput } from "./AppInput.style";
 
-interface TOAppInput extends React.InputHTMLAttributes<HTMLInputElement> {
-   inputType:"password" | "email"
-   inputPlaceholder:string
-}
+type TOAppInput = {
+    inputType: "password" | "email" | "text",
+    inputPlaceholder: string,
+    isError?: boolean,
+    errorText?: string,
+    isRequired: boolean
+};
 
 
-const AppInput = ({inputType,inputPlaceholder, ...props}:TOAppInput) => {
+const AppInput = ({
+    inputType,
+    inputPlaceholder,
+    isError,
+    errorText,
+    ...props
+}: TOAppInput) => {
     return (
-        <SCAppInput type={inputType} placeholder={inputPlaceholder} {...props}/>
+        <>
+            <SCAppInput
+                type={inputType}
+                placeholder={inputPlaceholder}
+                {...props}
+                $isError={isError || false}
+            />
+            {isError && <ErrorMessage>{errorText}</ErrorMessage>}</>
     );
 };
 
