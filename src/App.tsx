@@ -18,6 +18,7 @@ import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
         element:<ProfilePage/>
       },
     ])
+    
     return (
       <div className="App">
         <RouterProvider router={router} />
