@@ -4,6 +4,9 @@ import { UserElem } from "../../components/UI/UserElem/UserElem";
 import { Heading } from "../../components/Typography/Heading";
 import "./MainPage.scss";
 import { MusicElem } from "../../components/UI/MusicElem/MusicElem";
+import { SCAppMainPage } from "../../components/UI/AppMainPage/AppMainPage.style";
+import { SCAppLeftSide } from "../../components/UI/AppLeft/AppLeftSide.style";
+import { SCAppRightSide } from "../../components/UI/AppRight/AppRightSide";
 
 const userSubscribeData = [
   {
@@ -108,8 +111,8 @@ export const MainPage = () => {
   return (
     <>
       <Header />
-      <div className="MainPage">
-        <aside className="LeftSide">
+      <SCAppMainPage>
+        <SCAppLeftSide>
           <Navbar />
           <div className="List">
             <div className="List__title">
@@ -127,7 +130,7 @@ export const MainPage = () => {
               ))
             }
           </div>
-        </aside>
+        </SCAppLeftSide>
         <main className="Main">
           <div className="WhatsNew">
             <img src="./img/users/arina-volkova.jpeg" alt="User" />
@@ -528,7 +531,7 @@ export const MainPage = () => {
             </svg>
           </div>
         </main>
-        <aside className="RightSide">
+        <SCAppRightSide>
           <div className="List">
             <div className="List__title">
               <Heading headingType="h1" headingText=" Близкие друзья" />
@@ -563,8 +566,8 @@ export const MainPage = () => {
             }
             
           </div>
-        </aside>
-      </div>
+        </SCAppRightSide>
+      </SCAppMainPage>
     </>
 
   );
